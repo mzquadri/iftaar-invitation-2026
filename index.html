@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iftaar Invitation – Mohd Zamin Quadri</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Lateef:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,300;1,400&family=Nunito:wght@300;400;600&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --gold-lt: #F0D060;
+            --gold-dk: #9A7B1C;
+            --midnight: #07030F;
+            --navy: #0C0820;
+            --deep: #100A28;
+            --maroon: #4A1230;
+            --emerald: #0D6B5E;
+            --teal-lt: #12A08A;
+            --rose: #C0395A;
+            --cream: #FDF6E3;
+            --cream2: #EEE2C0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--midnight);
+            min-height: 100vh;
+            font-family: 'Cormorant Garamond', serif;
+            overflow-x: hidden;
+            color: var(--cream);
+        }
+
+        /* ══════════════════════════════════════
+       MODAL
+    ══════════════════════════════════════ */
+        #modal {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(ellipse at center, rgba(12, 8, 32, 0.98) 0%, rgba(7, 3, 15, 0.99) 100%);
+            animation: fadeIn .5s ease;
+        }
+
+        .m-box {
+            position: relative;
+            background: linear-gradient(160deg, #110826 0%, #0C1830 55%, #0A2420 100%);
+            border: 1px solid rgba(212, 175, 55, 0.6);
+            border-radius: 4px;
+            max-width: 400px;
+            width: 88%;
+            padding: 52px 36px 40px;
+            text-align: center;
+            box-shadow: 0 0 80px rgba(212, 175, 55, 0.18), 0 0 180px rgba(13, 107, 94, 0.1);
+            overflow: hidden;
+        }
+
+        /* arabesque corner SVG overlay */
+        .m-box::before,
+        .m-box::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 70 70'%3E%3Cpath d='M0 35 Q17.5 0 35 17.5 Q52.5 35 35 52.5 Q17.5 70 0 35Z' fill='none' stroke='%23D4AF37' stroke-width='0.6' stroke-opacity='0.4'/%3E%3Cpath d='M35 0 L70 35 L35 70 L0 35Z' fill='none' stroke='%23D4AF37' stroke-width='0.5' stroke-opacity='0.25'/%3E%3Ccircle cx='35' cy='35' r='5' fill='none' stroke='%23D4AF37' stroke-width='0.6' stroke-opacity='0.4'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .m-box::before {
+            top: 0;
+            left: 0;
+        }
+
+        .m-box::after {
+            bottom: 0;
+            right: 0;
+            transform: rotate(180deg);
+        }
+
+        .m-lantern-row {
+            font-size: 38px;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+        }
+
+        .m-lantern {
+            display: inline-block;
+            animation: swing 3s ease-in-out infinite;
+            transform-origin: top center;
+            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.6));
+        }
+
+        .m-lantern:nth-child(2) {
+            animation-delay: -.6s;
+            animation-duration: 2.6s;
+        }
+
+        .m-lantern:nth-child(3) {
+            animation-delay: -1.1s;
+            animation-duration: 3.3s;
+        }
+
+        .m-salam {
+            font-family: 'Lateef', serif;
+            font-size: 1.6rem;
+            color: var(--gold);
+            direction: rtl;
+            margin-bottom: 4px;
+            text-shadow: 0 0 16px rgba(212, 175, 55, 0.5);
+        }
+
+        .m-salam-en {
+            font-size: 0.72rem;
+            color: rgba(253, 246, 227, 0.45);
+            letter-spacing: 2px;
+            font-family: 'Nunito', sans-serif;
+            margin-bottom: 22px;
+        }
+
+        .m-title {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 1rem;
+            color: var(--gold);
+            letter-spacing: 3px;
+            margin-bottom: 6px;
+        }
+
+        .m-sub {
+            font-size: 0.85rem;
+            color: rgba(253, 246, 227, 0.6);
+            font-style: italic;
+            margin-bottom: 26px;
+        }
+
+        .m-input {
+            width: 100%;
+            padding: 13px 20px;
+            border: 1px solid rgba(212, 175, 55, 0.45);
+            border-radius: 2px;
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--cream);
+            font-size: 1rem;
+            font-family: 'Cormorant Garamond', serif;
+            outline: none;
+            text-align: center;
+            transition: border-color .3s, box-shadow .3s;
+            letter-spacing: 1px;
+        }
+
+        .m-input:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 24px rgba(212, 175, 55, 0.25);
+        }
+
+        .m-input::placeholder {
+            color: rgba(253, 246, 227, 0.3);
+        }
+
+        .m-btn {
+            margin-top: 16px;
+            width: 100%;
+            padding: 13px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dk));
+            border: none;
+            border-radius: 2px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-family: 'Nunito', sans-serif;
+            color: var(--midnight);
+            cursor: pointer;
+            transition: transform .2s, box-shadow .2s, opacity .2s;
+        }
+
+        .m-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(212, 175, 55, 0.4);
+            opacity: .95;
+        }
+
+        .m-skip {
+            margin-top: 14px;
+            display: block;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.25);
+            cursor: pointer;
+            font-family: 'Nunito', sans-serif;
+            letter-spacing: 2px;
+            transition: color .2s;
+        }
+
+        .m-skip:hover {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ══════════════════════════════════════
+       SKY
+    ══════════════════════════════════════ */
+        #sky {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            background: radial-gradient(ellipse at 50% -10%, #1C1050 0%, #0C0820 45%, #07030F 100%);
+        }
+
+        .star {
+            position: absolute;
+            border-radius: 50%;
+            background: #fff;
+            animation: twinkle var(--d, 3s) ease-in-out infinite;
+        }
+
+        /* ══════════════════════════════════════
+       HANGING LANTERNS (CSS)
+    ══════════════════════════════════════ */
+        .lantern-string {
+            position: fixed;
+            top: 0;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            pointer-events: none;
+        }
+
+        .l-wire {
+            width: 1px;
+            background: linear-gradient(to bottom, rgba(212, 175, 55, 0.5), rgba(212, 175, 55, 0.15));
+            flex-shrink: 0;
+        }
+
+        .l-body {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .l-top {
+            width: 18px;
+            height: 6px;
+            background: linear-gradient(135deg, #9A7B1C, #D4AF37);
+            border-radius: 3px 3px 0 0;
+        }
+
+        .l-mid {
+            width: 28px;
+            height: 48px;
+            background: linear-gradient(180deg, var(--lc1, #B8340A) 0%, var(--lc2, #E85010) 40%, var(--lc1, #B8340A) 100%);
+            border-radius: 4px 4px 8px 8px;
+            box-shadow: 0 0 14px rgba(var(--lglow, 232, 80, 16), 0.7), 0 0 32px rgba(var(--lglow, 232, 80, 16), 0.3), inset 0 4px 8px rgba(255, 255, 255, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .l-mid::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.12) 50%, transparent 100%);
+        }
+
+        .l-mid-gold {
+            --lc1: #7A5A00;
+            --lc2: #D4AF37;
+            --lglow: 212, 175, 55;
+        }
+
+        .l-mid-teal {
+            --lc1: #054030;
+            --lc2: #0D9B80;
+            --lglow: 13, 155, 128;
+        }
+
+        .l-mid-maroon {
+            --lc1: #3A0A20;
+            --lc2: #9A2040;
+            --lglow: 154, 32, 64;
+        }
+
+        .l-bottom {
+            width: 8px;
+            height: 14px;
+            background: linear-gradient(180deg, var(--lc2, #E85010), transparent);
+            border-radius: 0 0 4px 4px;
+            opacity: .7;
+        }
+
+        .l-glow {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 30px;
+            background: radial-gradient(ellipse, rgba(var(--lglow, 232, 80, 16), 0.4) 0%, transparent 70%);
+        }
+
+        /* row of lanterns strung top */
+        #lantern-row {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 3;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            pointer-events: none;
+            padding: 0 20px;
+        }
+
+        .ls {
+            animation: swing var(--sw, 3.5s) ease-in-out infinite;
+            animation-delay: var(--sd, 0s);
+            transform-origin: top center;
+        }
+
+        /* ══════════════════════════════════════
+       GEOMETRIC BORDER LINES
+    ══════════════════════════════════════ */
+        .geo-border {
+            position: fixed;
+            left: 0;
+            right: 0;
+            z-index: 4;
+            height: 5px;
+            background: linear-gradient(90deg,
+                    transparent 0%,
+                    rgba(212, 175, 55, 0.1) 5%,
+                    rgba(212, 175, 55, 0.6) 15%,
+                    var(--gold) 30%,
+                    rgba(240, 208, 96, 0.9) 50%,
+                    var(--gold) 70%,
+                    rgba(212, 175, 55, 0.6) 85%,
+                    rgba(212, 175, 55, 0.1) 95%,
+                    transparent 100%);
+            pointer-events: none;
+        }
+
+        .geo-border-top {
+            top: 0;
+        }
+
+        .geo-border-bot {
+            bottom: 0;
+        }
+
+        /* ══════════════════════════════════════
+       ARABESQUE SIDE ORNAMENTS
+    ══════════════════════════════════════ */
+        .side-ornament {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 3;
+            width: 60px;
+            opacity: .25;
+            pointer-events: none;
+        }
+
+        .side-ornament-l {
+            left: 10px;
+        }
+
+        .side-ornament-r {
+            right: 10px;
+            transform: translateY(-50%) scaleX(-1);
+        }
+
+        /* ══════════════════════════════════════
+       PARTICLES
+    ══════════════════════════════════════ */
+        .particle {
+            position: fixed;
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0;
+            animation: floatUp var(--dur, 10s) var(--delay, 0s) ease-in infinite;
+        }
+
+        /* ══════════════════════════════════════
+       MAIN LAYOUT
+    ══════════════════════════════════════ */
+        #main {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 120px 20px 120px;
+            gap: 0;
+        }
+
+        /* ══════════════════════════════════════
+       MOSQUE SILHOUETTE
+    ══════════════════════════════════════ */
+        .mosque-wrap {
+            margin-bottom: -2px;
+            opacity: .55;
+            filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.3));
+        }
+
+        /* ══════════════════════════════════════
+       CARD
+    ══════════════════════════════════════ */
+        .card {
+            background: linear-gradient(160deg,
+                    rgba(17, 8, 38, 0.97) 0%,
+                    rgba(12, 16, 42, 0.97) 45%,
+                    rgba(8, 26, 26, 0.97) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.45);
+            border-radius: 4px;
+            max-width: 640px;
+            width: 100%;
+            padding: 56px 52px;
+            backdrop-filter: blur(24px);
+            box-shadow:
+                0 0 0 1px rgba(212, 175, 55, 0.08),
+                0 0 80px rgba(212, 175, 55, 0.1),
+                0 0 180px rgba(13, 107, 94, 0.08),
+                0 40px 80px rgba(0, 0, 0, 0.6);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* inner geometric pattern */
+        .card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 1;
+            background-image:
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='%23D4AF37' stroke-width='0.4' stroke-opacity='0.07'%3E%3Crect x='5' y='5' width='50' height='50' rx='2'/%3E%3Cline x1='30' y1='5' x2='30' y2='55'/%3E%3Cline x1='5' y1='30' x2='55' y2='30'/%3E%3Cline x1='5' y1='5' x2='55' y2='55'/%3E%3Cline x1='55' y1='5' x2='5' y2='55'/%3E%3Ccircle cx='30' cy='30' r='12'/%3E%3Cpolygon points='30,5 55,42 5,42'/%3E%3Cpolygon points='30,55 5,18 55,18'/%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        /* corner ornaments */
+        .card-corner {
+            position: absolute;
+            width: 56px;
+            height: 56px;
+            opacity: .55;
+        }
+
+        .card-corner svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .cc-tl {
+            top: 16px;
+            left: 16px;
+        }
+
+        .cc-tr {
+            top: 16px;
+            right: 16px;
+            transform: scaleX(-1);
+        }
+
+        .cc-bl {
+            bottom: 16px;
+            left: 16px;
+            transform: scaleY(-1);
+        }
+
+        .cc-br {
+            bottom: 16px;
+            right: 16px;
+            transform: scale(-1, -1);
+        }
+
+        /* ── SALAM ── */
+        .salam-block {
+            background: linear-gradient(135deg, rgba(13, 107, 94, 0.15), rgba(13, 107, 94, 0.05));
+            border: 1px solid rgba(13, 107, 94, 0.4);
+            border-radius: 3px;
+            padding: 14px 18px;
+            margin-bottom: 28px;
+        }
+
+        .salam-ar {
+            font-family: 'Lateef', serif;
+            font-size: 2rem;
+            color: var(--teal-lt);
+            direction: rtl;
+            line-height: 1.3;
+            text-shadow: 0 0 20px rgba(13, 160, 138, 0.4);
+        }
+
+        .salam-en {
+            font-size: 0.72rem;
+            color: rgba(253, 246, 227, 0.4);
+            letter-spacing: 2.5px;
+            font-family: 'Nunito', sans-serif;
+            margin-top: 4px;
+            font-style: italic;
+        }
+
+        /* ── BISMILLAH ── */
+        .bismillah {
+            font-family: 'Lateef', serif;
+            font-size: 2.6rem;
+            color: var(--gold);
+            direction: rtl;
+            line-height: 1;
+            margin-bottom: 6px;
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+        }
+
+        /* ── LABEL ── */
+        .label-tag {
+            display: inline-block;
+            font-family: 'Nunito', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--emerald);
+            border: 1px solid rgba(13, 107, 94, 0.4);
+            padding: 4px 16px;
+            border-radius: 2px;
+            margin-bottom: 20px;
+        }
+
+        /* ── MAIN TITLE ── */
+        .main-title {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: clamp(1.7rem, 5vw, 2.7rem);
+            color: var(--gold-lt);
+            text-shadow: 0 0 40px rgba(212, 175, 55, 0.5), 0 2px 4px rgba(0, 0, 0, 0.5);
+            line-height: 1.15;
+            margin-bottom: 6px;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            font-style: italic;
+            color: rgba(253, 246, 227, 0.5);
+            letter-spacing: 4px;
+            margin-bottom: 32px;
+        }
+
+        /* ── PERSONAL GREETING ── */
+        .personal-box {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.09), rgba(212, 175, 55, 0.03));
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 3px;
+            padding: 20px 28px;
+            margin-bottom: 28px;
+        }
+
+        .personal-box p {
+            font-size: 0.9rem;
+            color: rgba(253, 246, 227, 0.5);
+            margin-bottom: 6px;
+            font-style: italic;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .guest-name {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: clamp(1.3rem, 4vw, 1.9rem);
+            color: var(--gold);
+            text-shadow: 0 0 24px rgba(212, 175, 55, 0.6);
+            animation: nameGlow 2.5s ease-in-out infinite;
+        }
+
+        /* ── BODY TEXT ── */
+        .invite-body {
+            font-size: 1.08rem;
+            font-weight: 300;
+            color: rgba(253, 246, 227, 0.72);
+            line-height: 1.85;
+            margin-bottom: 32px;
+            font-style: italic;
+        }
+
+        .invite-body strong {
+            color: var(--gold-lt);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        /* ── ISLAMIC STAR DIVIDER ── */
+        .star-divider {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 30px 0;
+        }
+
+        .star-divider .sd-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.5), transparent);
+        }
+
+        .star-divider svg {
+            flex-shrink: 0;
+            opacity: .75;
+            animation: rotateStar 12s linear infinite;
+        }
+
+        @keyframes rotateStar {
+            from {
+                transform: rotate(0)
+            }
+
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        /* ── ARCH TOPPER ── */
+        .arch-topper {
+            text-align: center;
+            margin-bottom: -3px;
+            filter: drop-shadow(0 0 18px rgba(212, 175, 55, 0.5));
+        }
+
+        /* ── CALLIGRAPHY WATERMARK ── */
+        .card-watermark {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .card-watermark span {
+            font-family: 'Lateef', serif;
+            font-size: 14rem;
+            color: rgba(212, 175, 55, 0.03);
+            direction: rtl;
+            line-height: 1;
+            white-space: nowrap;
+            animation: rotateStar 60s linear infinite;
+        }
+
+        /* ── SALAM ENHANCED ── */
+        .salam-block {
+            background: linear-gradient(135deg, rgba(13, 107, 94, 0.2), rgba(13, 107, 94, 0.06));
+            border: 1px solid rgba(13, 107, 94, 0.5);
+            border-radius: 2px;
+            padding: 18px 22px;
+            margin-bottom: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .salam-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(19, 160, 138, 0.7), transparent);
+        }
+
+        .salam-block::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(19, 160, 138, 0.7), transparent);
+        }
+
+        .salam-ar {
+            font-family: 'Lateef', serif;
+            font-size: 2.4rem;
+            color: var(--teal-lt);
+            direction: rtl;
+            line-height: 1.3;
+            text-shadow: 0 0 28px rgba(18, 160, 138, 0.6), 0 0 60px rgba(18, 160, 138, 0.2);
+        }
+
+        .salam-en {
+            font-size: 0.7rem;
+            color: rgba(253, 246, 227, 0.4);
+            letter-spacing: 3px;
+            font-family: 'Nunito', sans-serif;
+            margin-top: 6px;
+            font-style: italic;
+        }
+
+        /* ── BISMILLAH ENHANCED ── */
+        .bismillah {
+            font-family: 'Lateef', serif;
+            font-size: 3.4rem;
+            color: var(--gold);
+            direction: rtl;
+            line-height: 1;
+            margin-bottom: 10px;
+            text-shadow: 0 0 40px rgba(212, 175, 55, 0.7), 0 0 80px rgba(212, 175, 55, 0.2);
+            animation: bismillahPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes bismillahPulse {
+
+            0%,
+            100% {
+                text-shadow: 0 0 40px rgba(212, 175, 55, 0.7), 0 0 80px rgba(212, 175, 55, 0.2)
+            }
+
+            50% {
+                text-shadow: 0 0 60px rgba(240, 208, 96, 1), 0 0 120px rgba(212, 175, 55, 0.4)
+            }
+        }
+
+        /* ── DETAILS ── */
+        .details {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+            margin-bottom: 32px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.025);
+            padding: 18px 22px;
+            text-align: left;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            transition: background .3s;
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .detail-item:hover {
+            background: rgba(212, 175, 55, 0.06);
+        }
+
+        .detail-icon-wrap {
+            width: 44px;
+            height: 44px;
+            flex-shrink: 0;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            background: rgba(212, 175, 55, 0.06);
+        }
+
+        .detail-label {
+            font-family: 'Nunito', sans-serif;
+            font-size: 0.62rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--teal-lt);
+            margin-bottom: 4px;
+        }
+
+        .detail-value {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--cream);
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: .5px;
+        }
+
+        .detail-sub {
+            font-size: 0.8rem;
+            color: rgba(253, 246, 227, 0.4);
+            margin-top: 2px;
+            font-style: italic;
+        }
+
+        /* ── COUNTDOWN ── */
+        .countdown-wrap {
+            margin-bottom: 32px;
+        }
+
+        .countdown-label {
+            font-family: 'Nunito', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: rgba(253, 246, 227, 0.35);
+            margin-bottom: 16px;
+        }
+
+        .countdown-grid {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .c-box {
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            border-radius: 3px;
+            padding: 16px 14px;
+            min-width: 76px;
+            background: linear-gradient(160deg, rgba(212, 175, 55, 0.07), rgba(7, 3, 15, 0.4));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .c-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
+        }
+
+        .c-num {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 2rem;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .c-unit {
+            font-family: 'Nunito', sans-serif;
+            font-size: 0.58rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(253, 246, 227, 0.35);
+            margin-top: 6px;
+        }
+
+        .c-expired {
+            color: var(--gold);
+            font-style: italic;
+            font-size: 1rem;
+        }
+
+        /* ── LANTERNS EMOJI ROW (inside card) ── */
+        .card-lanterns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 32px;
+            margin: 4px 0 28px;
+        }
+
+        .cl {
+            display: inline-block;
+            animation: swing var(--s, 3.5s) ease-in-out infinite;
+            transform-origin: top center;
+            filter: drop-shadow(0 4px 12px rgba(212, 175, 55, 0.5));
+        }
+
+        .cl:nth-child(1) {
+            --s: 3.2s;
+        }
+
+        .cl:nth-child(2) {
+            --s: 2.7s;
+            animation-delay: -.4s;
+        }
+
+        .cl:nth-child(3) {
+            --s: 3.5s;
+            animation-delay: -.8s;
+        }
+
+        .cl:nth-child(4) {
+            --s: 2.9s;
+            animation-delay: -.3s;
+        }
+
+        .cl:nth-child(5) {
+            --s: 3.8s;
+            animation-delay: -1s;
+        }
+
+        /* ── DUA BLOCK ── */
+        .dua-block {
+            background: linear-gradient(160deg, rgba(212, 175, 55, 0.07), rgba(7, 3, 15, 0.3));
+            border: 1px solid rgba(212, 175, 55, 0.22);
+            border-radius: 3px;
+            padding: 24px 24px 20px;
+            margin-bottom: 28px;
+        }
+
+        .dua-label {
+            font-family: 'Nunito', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--teal-lt);
+            margin-bottom: 12px;
+        }
+
+        .dua-ar {
+            font-family: 'Lateef', serif;
+            font-size: 1.75rem;
+            color: var(--gold);
+            direction: rtl;
+            line-height: 1.5;
+            margin-bottom: 8px;
+            text-shadow: 0 0 16px rgba(212, 175, 55, 0.3);
+        }
+
+        .dua-trans {
+            font-size: 0.78rem;
+            color: rgba(212, 175, 55, 0.55);
+            font-style: italic;
+            margin-bottom: 6px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .dua-meaning {
+            font-size: 0.83rem;
+            color: rgba(253, 246, 227, 0.55);
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        .dua-source {
+            font-size: 0.68rem;
+            color: rgba(253, 246, 227, 0.3);
+            margin-top: 6px;
+            font-family: 'Nunito', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        /* ── RSVP ── */
+        .rsvp-box {
+            background: linear-gradient(135deg, rgba(74, 18, 48, 0.2), rgba(192, 57, 90, 0.08));
+            border: 1px solid rgba(192, 57, 90, 0.3);
+            border-radius: 3px;
+            padding: 20px 22px;
+            font-size: 0.95rem;
+            color: rgba(253, 246, 227, 0.75);
+            margin-bottom: 32px;
+            line-height: 1.75;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+        }
+
+        .rsvp-box strong {
+            color: #E0607A;
+            font-style: normal;
+            font-family: 'Nunito', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        /* ── HOST BLOCK ── */
+        .host-block {
+            border: 1px solid rgba(212, 175, 55, 0.22);
+            border-radius: 3px;
+            overflow: hidden;
+            text-align: left;
+        }
+
+        .host-row {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 16px 20px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            background: rgba(212, 175, 55, 0.03);
+            transition: background .3s;
+        }
+
+        .host-row:last-of-type {
+            border-bottom: none;
+        }
+
+        .host-row:hover {
+            background: rgba(212, 175, 55, 0.07);
+        }
+
+        .host-icon {
+            font-size: 22px;
+            flex-shrink: 0;
+            filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.5));
+        }
+
+        .host-label {
+            font-family: 'Nunito', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--teal-lt);
+            margin-bottom: 4px;
+        }
+
+        .host-name {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 1.05rem;
+            color: var(--gold);
+            letter-spacing: 1px;
+            text-shadow: 0 0 16px rgba(212, 175, 55, 0.4);
+        }
+
+        .host-venue {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--cream);
+            letter-spacing: .5px;
+        }
+
+        .footer-arabic {
+            font-family: 'Lateef', serif;
+            font-size: 1.7rem;
+            color: rgba(212, 175, 55, 0.35);
+            margin-top: 16px;
+            direction: rtl;
+            display: block;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* ══════════════════════════════════════
+       ANIMATIONS
+    ══════════════════════════════════════ */
+        @keyframes fadeIn {
+            from {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: var(--op, .8);
+                transform: scale(1)
+            }
+
+            50% {
+                opacity: .1;
+                transform: scale(.4)
+            }
+        }
+
+        @keyframes swing {
+
+            0%,
+            100% {
+                transform: rotate(-7deg)
+            }
+
+            50% {
+                transform: rotate(7deg)
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(-16px)
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: .5
+            }
+        }
+
+        @keyframes nameGlow {
+
+            0%,
+            100% {
+                text-shadow: 0 0 24px rgba(212, 175, 55, .5)
+            }
+
+            50% {
+                text-shadow: 0 0 50px rgba(240, 208, 96, .9), 0 0 80px rgba(212, 175, 55, .3)
+            }
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0
+            }
+
+            10% {
+                opacity: .5
+            }
+
+            90% {
+                opacity: .15
+            }
+
+            100% {
+                transform: translateY(-80px) scale(1);
+                opacity: 0
+            }
+        }
+
+        @keyframes lanternGlow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 14px rgba(232, 80, 16, .7), 0 0 32px rgba(232, 80, 16, .3)
+            }
+
+            50% {
+                box-shadow: 0 0 22px rgba(232, 80, 16, .9), 0 0 50px rgba(232, 80, 16, .4)
+            }
+        }
+
+        #main {
+            animation: slideUp .9s cubic-bezier(.16, 1, .3, 1) both;
+        }
+
+        @media(max-width:520px) {
+            .card {
+                padding: 36px 22px;
+            }
+
+            .main-title {
+                font-size: 1.6rem;
+            }
+
+            .bismillah {
+                font-size: 2rem;
+            }
+
+            .card-lanterns {
+                gap: 12px;
+                font-size: 26px;
+            }
+
+            .c-box {
+                min-width: 64px;
+                padding: 12px 8px;
+            }
+
+            .side-ornament {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ══════ MODAL ══════ -->
+    <div id="modal">
+        <div class="m-box">
+            <div class="m-lantern-row">
+                <span class="m-lantern">🏮</span>
+                <span class="m-lantern">🏮</span>
+                <span class="m-lantern">🏮</span>
+            </div>
+            <div class="m-salam">اَلسَّلَامُ عَلَيْكُمْ</div>
+            <div class="m-salam-en">Peace be upon you</div>
+            <div class="m-title">Ramadan Kareem</div>
+            <p class="m-sub">To whom shall we address this blessed invitation?</p>
+            <input class="m-input" id="name-input" type="text" placeholder="Enter your name…" maxlength="40"
+                autocomplete="off" />
+            <button class="m-btn" id="enter-btn">Open My Invitation</button>
+        </div>
+    </div>
+
+    <!-- ══════ SKY ══════ -->
+    <div id="sky"></div>
+
+    <!-- ══════ CSS HANGING LANTERNS (top) ══════ -->
+    <div id="lantern-row"></div>
+
+    <!-- ══════ BORDERS ══════ -->
+    <div class="geo-border geo-border-top"></div>
+    <div class="geo-border geo-border-bot"></div>
+
+    <!-- ══════ SIDE ORNAMENTS ══════ -->
+    <svg class="side-ornament side-ornament-l" viewBox="0 0 60 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="#D4AF37" stroke-width="0.8">
+            <line x1="30" y1="0" x2="30" y2="300" />
+            <circle cx="30" cy="30" r="18" />
+            <circle cx="30" cy="90" r="12" />
+            <polygon points="30,60 48,150 30,180 12,150" />
+            <circle cx="30" cy="210" r="18" />
+            <circle cx="30" cy="270" r="12" />
+        </g>
+    </svg>
+    <svg class="side-ornament side-ornament-r" viewBox="0 0 60 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="#D4AF37" stroke-width="0.8">
+            <line x1="30" y1="0" x2="30" y2="300" />
+            <circle cx="30" cy="30" r="18" />
+            <circle cx="30" cy="90" r="12" />
+            <polygon points="30,60 48,150 30,180 12,150" />
+            <circle cx="30" cy="210" r="18" />
+            <circle cx="30" cy="270" r="12" />
+        </g>
+    </svg>
+
+    <!-- ══════ MAIN ══════ -->
+    <div id="main">
+
+        <!-- Mosque silhouette SVG -->
+        <div class="mosque-wrap">
+            <svg width="600" height="100" viewBox="0 0 600 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="mgr" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.9" />
+                        <stop offset="100%" stop-color="#D4AF37" stop-opacity="0.05" />
+                    </linearGradient>
+                </defs>
+                <rect x="20" y="72" width="560" height="28" fill="url(#mgr)" />
+                <!-- far left tower -->
+                <rect x="22" y="40" width="16" height="32" fill="url(#mgr)" />
+                <path d="M22 40 Q30 18 38 40Z" fill="url(#mgr)" />
+                <rect x="28" y="8" width="4" height="16" fill="url(#mgr)" />
+                <!-- far right tower -->
+                <rect x="562" y="40" width="16" height="32" fill="url(#mgr)" />
+                <path d="M562 40 Q570 18 578 40Z" fill="url(#mgr)" />
+                <rect x="568" y="8" width="4" height="16" fill="url(#mgr)" />
+                <!-- mid-left tower -->
+                <rect x="80" y="50" width="18" height="22" fill="url(#mgr)" />
+                <path d="M80 50 Q89 28 98 50Z" fill="url(#mgr)" />
+                <rect x="86" y="16" width="4" height="16" fill="url(#mgr)" />
+                <!-- mid-right tower -->
+                <rect x="502" y="50" width="18" height="22" fill="url(#mgr)" />
+                <path d="M502 50 Q511 28 520 50Z" fill="url(#mgr)" />
+                <rect x="508" y="16" width="4" height="16" fill="url(#mgr)" />
+                <!-- small left -->
+                <rect x="160" y="58" width="14" height="14" fill="url(#mgr)" />
+                <path d="M160 58 Q167 44 174 58Z" fill="url(#mgr)" />
+                <!-- small right -->
+                <rect x="426" y="58" width="14" height="14" fill="url(#mgr)" />
+                <path d="M426 58 Q433 44 440 58Z" fill="url(#mgr)" />
+                <!-- central dome -->
+                <path d="M200 72 Q206 18 300 10 Q394 18 400 72Z" fill="url(#mgr)" />
+                <!-- central spire -->
+                <rect x="297" y="0" width="6" height="18" fill="url(#mgr)" />
+                <path d="M294 18 L300 2 L306 18Z" fill="#F0D060" opacity=".9" />
+                <!-- arch windows -->
+                <path d="M258 72 Q258 55 270 55 Q282 55 282 72Z" fill="none" stroke="#D4AF37" stroke-width="0.8"
+                    stroke-opacity="0.45" />
+                <path d="M318 72 Q318 55 330 55 Q342 55 342 72Z" fill="none" stroke="#D4AF37" stroke-width="0.8"
+                    stroke-opacity="0.45" />
+                <!-- door -->
+                <path d="M288 100 L288 74 Q300 64 312 74 L312 100Z" fill="url(#mgr)" opacity=".6" />
+                <!-- decorative arches low -->
+                <path d="M120 72 Q120 62 130 62 Q140 62 140 72Z" fill="none" stroke="#D4AF37" stroke-width="0.6"
+                    stroke-opacity="0.3" />
+                <path d="M460 72 Q460 62 470 62 Q480 62 480 72Z" fill="none" stroke="#D4AF37" stroke-width="0.6"
+                    stroke-opacity="0.3" />
+            </svg>
+        </div>
+
+        <!-- Arch topper -->
+        <div class="arch-topper">
+            <svg width="340" height="48" viewBox="0 0 340 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 48 L0 30 Q170 -18 340 30 L340 48Z" fill="rgba(17,8,38,0.97)" stroke="rgba(212,175,55,0.5)"
+                    stroke-width="1" />
+                <path d="M20 48 Q170 4 320 48" fill="none" stroke="rgba(212,175,55,0.2)" stroke-width="0.7" />
+                <circle cx="170" cy="10" r="4" fill="#D4AF37" opacity=".6" />
+                <circle cx="85" cy="30" r="2.5" fill="#D4AF37" opacity=".4" />
+                <circle cx="255" cy="30" r="2.5" fill="#D4AF37" opacity=".4" />
+                <line x1="170" y1="6" x2="170" y2="0" stroke="#D4AF37" stroke-width="1" stroke-opacity="0.5" />
+            </svg>
+        </div>
+
+        <!-- CARD -->
+        <div class="card">
+
+            <!-- Arabic calligraphy watermark -->
+            <div class="card-watermark"><span>الله</span></div>
+
+            <!-- corner ornaments (richer 8-point) -->
+            <div class="card-corner cc-tl">
+                <svg viewBox="0 0 56 56" fill="none">
+                    <path d="M2 2 L22 2 L2 22Z" stroke="#D4AF37" stroke-width="1" stroke-opacity=".6"
+                        fill="rgba(212,175,55,0.04)" />
+                    <path d="M2 2 Q32 2 32 32" stroke="#D4AF37" stroke-width=".7" stroke-opacity=".3" fill="none" />
+                    <circle cx="5" cy="5" r="3" fill="#D4AF37" fill-opacity=".5" />
+                    <path d="M12 2 L2 12" stroke="#D4AF37" stroke-width=".5" stroke-opacity=".3" />
+                    <path d="M22 2 L2 22" stroke="#D4AF37" stroke-width=".4" stroke-opacity=".2" />
+                </svg>
+            </div>
+            <div class="card-corner cc-tr">
+                <svg viewBox="0 0 56 56" fill="none">
+                    <path d="M2 2 L22 2 L2 22Z" stroke="#D4AF37" stroke-width="1" stroke-opacity=".6"
+                        fill="rgba(212,175,55,0.04)" />
+                    <path d="M2 2 Q32 2 32 32" stroke="#D4AF37" stroke-width=".7" stroke-opacity=".3" fill="none" />
+                    <circle cx="5" cy="5" r="3" fill="#D4AF37" fill-opacity=".5" />
+                    <path d="M12 2 L2 12" stroke="#D4AF37" stroke-width=".5" stroke-opacity=".3" />
+                    <path d="M22 2 L2 22" stroke="#D4AF37" stroke-width=".4" stroke-opacity=".2" />
+                </svg>
+            </div>
+            <div class="card-corner cc-bl">
+                <svg viewBox="0 0 56 56" fill="none">
+                    <path d="M2 2 L22 2 L2 22Z" stroke="#D4AF37" stroke-width="1" stroke-opacity=".6"
+                        fill="rgba(212,175,55,0.04)" />
+                    <path d="M2 2 Q32 2 32 32" stroke="#D4AF37" stroke-width=".7" stroke-opacity=".3" fill="none" />
+                    <circle cx="5" cy="5" r="3" fill="#D4AF37" fill-opacity=".5" />
+                    <path d="M12 2 L2 12" stroke="#D4AF37" stroke-width=".5" stroke-opacity=".3" />
+                    <path d="M22 2 L2 22" stroke="#D4AF37" stroke-width=".4" stroke-opacity=".2" />
+                </svg>
+            </div>
+            <div class="card-corner cc-br">
+                <svg viewBox="0 0 56 56" fill="none">
+                    <path d="M2 2 L22 2 L2 22Z" stroke="#D4AF37" stroke-width="1" stroke-opacity=".6"
+                        fill="rgba(212,175,55,0.04)" />
+                    <path d="M2 2 Q32 2 32 32" stroke="#D4AF37" stroke-width=".7" stroke-opacity=".3" fill="none" />
+                    <circle cx="5" cy="5" r="3" fill="#D4AF37" fill-opacity=".5" />
+                    <path d="M12 2 L2 12" stroke="#D4AF37" stroke-width=".5" stroke-opacity=".3" />
+                    <path d="M22 2 L2 22" stroke="#D4AF37" stroke-width=".4" stroke-opacity=".2" />
+                </svg>
+            </div>
+
+            <!-- Salam -->
+            <div class="salam-block">
+                <div class="salam-ar">اَلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ</div>
+                <div class="salam-en">Peace be upon you, and the mercy of Allah, and His blessings</div>
+            </div>
+
+            <!-- Bismillah -->
+            <div class="bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+
+            <div class="label-tag">رمضان المبارك &nbsp;·&nbsp; Ramadan Mubarak 1447H</div>
+
+            <!-- Lanterns -->
+            <div class="card-lanterns">
+                <span class="cl">🏮</span>
+                <span class="cl">🏮</span>
+                <span class="cl">🏮</span>
+                <span class="cl">🏮</span>
+                <span class="cl">🏮</span>
+            </div>
+
+            <div class="main-title">Iftaar Gathering</div>
+            <div class="subtitle">— You are most warmly invited —</div>
+
+            <!-- Personal greeting -->
+            <div class="personal-box" id="greeting-box">
+                <p>In the name of Allah, with honour I address,</p>
+                <div class="guest-name" id="guest-name-display">Dear Friend</div>
+            </div>
+
+            <!-- Invitation body -->
+            <p class="invite-body">
+                It is with heartfelt joy that I invite you to join me for <strong>Iftaar</strong> —
+                the blessed breaking of the fast — as we come together in the sacred spirit of
+                <strong>Ramadan al-Kareem</strong>. May this evening illuminate our hearts with gratitude,
+                fill our souls with peace, and remind us of the beauty of brotherhood &amp; sisterhood
+                in this holy month. Your presence would be a blessing. 🌙
+            </p>
+
+            <div class="star-divider">
+                <div class="sd-line"></div>
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <path d="M16 0L18.5 13.5L32 16L18.5 18.5L16 32L13.5 18.5L0 16L13.5 13.5Z" fill="#D4AF37"
+                        fill-opacity=".7" />
+                    <circle cx="16" cy="16" r="3" fill="#D4AF37" />
+                </svg>
+                <svg width="20" height="20" viewBox="0 0 32 32" fill="none">
+                    <path d="M16 0L18.5 13.5L32 16L18.5 18.5L16 32L13.5 18.5L0 16L13.5 13.5Z" fill="#D4AF37"
+                        fill-opacity=".4" />
+                </svg>
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <path d="M16 0L18.5 13.5L32 16L18.5 18.5L16 32L13.5 18.5L0 16L13.5 13.5Z" fill="#D4AF37"
+                        fill-opacity=".7" />
+                    <circle cx="16" cy="16" r="3" fill="#D4AF37" />
+                </svg>
+                <div class="sd-line"></div>
+            </div>
+
+            <!-- Event details -->
+            <div class="details">
+                <div class="detail-item">
+                    <div class="detail-icon-wrap">📅</div>
+                    <div>
+                        <div class="detail-label">Date</div>
+                        <div class="detail-value">Saturday, 7th March 2026</div>
+                        <div class="detail-sub">During the blessed nights of Ramadan</div>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon-wrap">🏮</div>
+                    <div>
+                        <div class="detail-label">Iftaar Time</div>
+                        <div class="detail-value">6:30 PM onwards</div>
+                        <div class="detail-sub">Come as the call to Maghrib draws near</div>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon-wrap">📍</div>
+                    <div>
+                        <div class="detail-label">Venue</div>
+                        <div class="detail-value">Stibo Bar</div>
+                        <div class="detail-sub">Schrofelhofstrasse 26, Munich</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="star-divider">
+                <div class="sd-line"></div>
+                <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
+                    <path d="M16 0L18.5 13.5L32 16L18.5 18.5L16 32L13.5 18.5L0 16L13.5 13.5Z" fill="#D4AF37"
+                        fill-opacity=".5" />
+                </svg>
+                <div class="sd-line"></div>
+            </div>
+
+            <!-- Countdown -->
+            <div class="countdown-wrap">
+                <div class="countdown-label">🕌 &nbsp; Counting Down to the Gathering</div>
+                <div class="countdown-grid" id="countdown-grid">
+                    <div class="c-box">
+                        <div class="c-num" id="cd-days">--</div>
+                        <div class="c-unit">Days</div>
+                    </div>
+                    <div class="c-box">
+                        <div class="c-num" id="cd-hours">--</div>
+                        <div class="c-unit">Hours</div>
+                    </div>
+                    <div class="c-box">
+                        <div class="c-num" id="cd-mins">--</div>
+                        <div class="c-unit">Minutes</div>
+                    </div>
+                    <div class="c-box">
+                        <div class="c-num" id="cd-secs">--</div>
+                        <div class="c-unit">Seconds</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="star-divider">
+                <div class="sd-line"></div>
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <path d="M16 0L18.5 13.5L32 16L18.5 18.5L16 32L13.5 18.5L0 16L13.5 13.5Z" fill="#D4AF37"
+                        fill-opacity=".7" />
+                    <circle cx="16" cy="16" r="3" fill="#D4AF37" />
+                </svg>
+                <svg width="20" height="20" viewBox="0 0 32 32" fill="none">
+                    <path d="M16 0L18.5 13.5L32 16L18.5 18.5L16 32L13.5 18.5L0 16L13.5 13.5Z" fill="#D4AF37"
+                        fill-opacity=".4" />
+                </svg>
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <path d="M16 0L18.5 13.5L32 16L18.5 18.5L16 32L13.5 18.5L0 16L13.5 13.5Z" fill="#D4AF37"
+                        fill-opacity=".7" />
+                    <circle cx="16" cy="16" r="3" fill="#D4AF37" />
+                </svg>
+                <div class="sd-line"></div>
+            </div>
+
+            <!-- Dua -->
+            <div class="dua-block">
+                <div class="dua-label">🤲 &nbsp; Prophetic Supplication for the Host</div>
+                <div class="dua-ar">اَللّٰهُمَّ بَارِكْ لَهُمْ فِيْمَا رَزَقْتَهُمْ وَاغْفِرْ لَهُمْ وَارْحَمْهُمْ</div>
+                <div class="dua-trans">Allāhumma bārik lahum fīmā razaqtahum, waghfir lahum warḥamhum</div>
+                <div class="dua-meaning">"O Allah, bless them in what You have provided for them,<br />forgive them and
+                    have mercy upon them."</div>
+                <div class="dua-source">— Prophet Muhammad ﷺ &nbsp;·&nbsp; Sahih Muslim</div>
+            </div>
+
+            <!-- Islamic Quote -->
+            <div class="rsvp-box">
+                <div
+                    style="font-family:'Lateef',serif;font-size:1.65rem;direction:rtl;color:var(--gold);margin-bottom:8px;text-shadow:0 0 16px rgba(212,175,55,0.4);">
+                    كُلُوا مِن طَيِّبَاتِ مَا رَزَقْنَاكُمْ وَاشْكُرُوا لِلَّهِ
+                </div>
+                <div
+                    style="font-size:0.72rem;font-family:'Nunito',sans-serif;letter-spacing:2px;color:rgba(212,175,55,0.55);margin-bottom:14px;">
+                    — Surah Al-Baqarah, 2:172</div>
+                <div style="font-style:italic;font-size:1rem;color:rgba(253,246,227,0.7);line-height:1.75;">
+                    "Eat from the good things which We have provided for you and be grateful to Allah."<br />
+                    <span style="font-size:0.85rem;color:rgba(253,246,227,0.45);">
+                        The Prophet ﷺ said: <em>"Whoever gives food to a fasting person to break his fast,
+                            shall have his sins forgiven."</em><br />
+                        <span
+                            style="font-size:0.72rem;color:rgba(253,246,227,0.3);font-family:'Nunito',sans-serif;letter-spacing:1px;">—
+                            Tirmidhi</span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="star-divider">
+                <div class="sd-line"></div>
+                <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
+                    <path d="M16 0L18.5 13.5L32 16L18.5 18.5L16 32L13.5 18.5L0 16L13.5 13.5Z" fill="#D4AF37"
+                        fill-opacity=".5" />
+                </svg>
+                <div class="sd-line"></div>
+            </div>
+
+            <!-- Host -->
+            <div class="host-block">
+                <div class="host-row">
+                    <div class="host-icon">🏮</div>
+                    <div class="host-info">
+                        <div class="host-label">Hosted By</div>
+                        <div class="host-name">Mohd Zamin Quadri</div>
+                    </div>
+                </div>
+                <div class="host-row">
+                    <div class="host-icon">📍</div>
+                    <div class="host-info">
+                        <div class="host-label">Location</div>
+                        <div class="host-venue">Stibo Bar, Schrofelhofstrasse 26</div>
+                    </div>
+                </div>
+                <span class="footer-arabic">رَمَضَانُ كَرِيمٌ وَاللهُ أَكْبَر</span>
+            </div>
+
+        </div><!-- /card -->
+
+        <!-- Bottom lanterns -->
+        <div style="display:flex;gap:20px;margin-top:24px;font-size:30px;justify-content:center;">
+            <span class="cl" style="--s:3s;">🏮</span>
+            <span class="cl" style="--s:2.7s;animation-delay:-.5s">🏮</span>
+            <span class="cl" style="--s:3.4s;animation-delay:-.9s">🏮</span>
+        </div>
+
+    </div><!-- /main -->
+
+    <script>
+        /* ── STARS ─────────────────────────────── */
+        const sky = document.getElementById('sky');
+        for (let i = 0; i < 180; i++) {
+            const s = document.createElement('div');
+            s.className = 'star';
+            const sz = Math.random() * 2.5 + 0.4;
+            s.style.cssText = `left:${Math.random() * 100}%;top:${Math.random() * 100}%;width:${sz}px;height:${sz}px;--d:${(Math.random() * 4 + 1.5).toFixed(1)}s;--op:${(Math.random() * 0.5 + 0.2).toFixed(2)};animation-delay:${(Math.random() * 6).toFixed(1)}s;`;
+            sky.appendChild(s);
+        }
+
+        /* ── CSS HANGING LANTERNS ───────────────── */
+        const row = document.getElementById('lantern-row');
+        const lColors = [
+            { c1: '#8A2A00', c2: '#D44010', glow: '210,64,16' },
+            { c1: '#5A3A00', c2: '#C09010', glow: '192,144,16' },
+            { c1: '#043028', c2: '#0A8A70', glow: '10,138,112' },
+            { c1: '#3A0818', c2: '#8A1838', glow: '138,24,56' },
+            { c1: '#5A3A00', c2: '#C09010', glow: '192,144,16' },
+            { c1: '#043028', c2: '#0A8A70', glow: '10,138,112' },
+            { c1: '#8A2A00', c2: '#D44010', glow: '210,64,16' },
+        ];
+        const wireH = [60, 45, 70, 50, 65, 48, 58];
+        const swSpeeds = ['3.2s', '2.7s', '3.6s', '2.9s', '3.1s', '2.5s', '3.4s'];
+        const swDelays = ['0s', '-.3s', '-.7s', '-.2s', '-.9s', '-.5s', '-1.1s'];
+        lColors.forEach((c, i) => {
+            const wrap = document.createElement('div');
+            wrap.className = 'lantern-string';
+            wrap.style.cssText = `left:${8 + i * (84 / (lColors.length - 1))}%`;
+            wrap.innerHTML = `
+    <div class="ls" style="--sw:${swSpeeds[i]};--sd:${swDelays[i]}">
+      <div class="l-wire" style="height:${wireH[i]}px"></div>
+      <div class="l-body">
+        <div class="l-top"></div>
+        <div class="l-mid" style="--lc1:${c.c1};--lc2:${c.c2};--lglow:${c.glow};animation:lanternGlow 2.5s ease-in-out infinite;animation-delay:${swDelays[i]}"></div>
+        <div class="l-bottom" style="--lc2:${c.c2}"></div>
+        <div class="l-glow" style="--lglow:${c.glow}"></div>
+      </div>
+    </div>`;
+            row.appendChild(wrap);
+        });
+
+        /* ── PARTICLES ───────────────────────────── */
+        const pColors = ['#D4AF37', '#0D7377', '#C0395A', '#FDF6E3', '#12A08A', 'rgba(212,175,55,0.6)'];
+        for (let i = 0; i < 20; i++) {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            const sz = Math.random() * 6 + 3;
+            p.style.cssText = `left:${Math.random() * 100}%;width:${sz}px;height:${sz}px;background:${pColors[Math.floor(Math.random() * pColors.length)]};border-radius:50%;--dur:${(Math.random() * 8 + 7).toFixed(1)}s;--delay:${(Math.random() * 10).toFixed(1)}s;`;
+            document.body.appendChild(p);
+        }
+
+        /* ── COUNTDOWN ───────────────────────────── */
+        function updateCD() {
+            const t = new Date('2026-03-07T18:30:00').getTime();
+            const d = t - Date.now();
+            if (d <= 0) {
+                document.getElementById('countdown-grid').innerHTML = '<div class="c-expired">🌙 Bismillah — Iftaar is NOW! 🤲</div>';
+                return;
+            }
+            document.getElementById('cd-days').textContent = String(Math.floor(d / 86400000)).padStart(2, '0');
+            document.getElementById('cd-hours').textContent = String(Math.floor((d % 86400000) / 3600000)).padStart(2, '0');
+            document.getElementById('cd-mins').textContent = String(Math.floor((d % 3600000) / 60000)).padStart(2, '0');
+            document.getElementById('cd-secs').textContent = String(Math.floor((d % 60000) / 1000)).padStart(2, '0');
+        }
+        updateCD(); setInterval(updateCD, 1000);
+
+        /* ── NAME MODAL ─────────────────────────── */
+        function applyName(name) {
+            document.getElementById('modal').style.display = 'none';
+            if (name && name.trim()) {
+                document.getElementById('guest-name-display').textContent = name.trim();
+            } else {
+                document.getElementById('greeting-box').classList.add('hidden');
+            }
+        }
+        const urlN = new URLSearchParams(window.location.search).get('name');
+        if (urlN) { applyName(urlN); }
+        else {
+            document.getElementById('enter-btn').addEventListener('click', () => applyName(document.getElementById('name-input').value));
+            document.getElementById('name-input').addEventListener('keydown', e => { if (e.key === 'Enter') applyName(document.getElementById('name-input').value); });
+        }
+    </script>
+</body>
+
+</html>
